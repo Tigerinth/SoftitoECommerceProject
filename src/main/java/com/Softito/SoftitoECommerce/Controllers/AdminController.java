@@ -69,15 +69,10 @@ public class AdminController {
             return "redirect:/admin/register";
         }
     }
-
-
-
-
     @GetMapping("/admin/all-admins")
     public String listAdmins(Model model) {
         List<Admin> admins = adminRepositoryService.getAll();
         model.addAttribute("admins", admins);
-
         return "back/all-admins";
     }
 

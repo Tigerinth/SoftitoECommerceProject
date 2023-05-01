@@ -24,6 +24,7 @@ public class Product {
     @Column(name = "price")
     private Double price;
 
+
     @Column(name = "old_price")
     private Double oldPrice;
 
