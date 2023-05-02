@@ -53,8 +53,8 @@ public class ProductController {
     }
 
 
-    @GetMapping("/admin/add-product/{id}")
-    public String adminAddProduct(Model model,@PathVariable("id") Long id){
+    @GetMapping("/admin/add-productt/{id}")
+    public String adminAddProducttt(Model model,@PathVariable("id") Long id){
         Set<SubCategory> subCategorySet = subCategoryRepositoryService.getSubCategories(id);
         /*
         for (SubCategory subCategory : subCategorySet){

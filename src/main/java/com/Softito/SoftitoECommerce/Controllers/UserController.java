@@ -20,9 +20,15 @@ public class UserController {
     @Autowired
     private UserRepositoryService userRepositoryService;
 
+
+    //ismini değiştircem
     @GetMapping("/user/login")
     public String userLogin(Model model){
-        return "back/login";
+        return "userlogin";
+    }
+    @GetMapping("/anasayfa")
+    public String mainmenu(Model model){
+        return "index";
     }
 
     @PostMapping("/user/login")
@@ -31,7 +37,7 @@ public class UserController {
 
         for(User user : userRepositoryService.getAll()){
             if (user.getEmail().matches(email) && passwordEncoder.matches(password, user.getPassword())) {
-                return "redirect:/user/panel";
+                return "redirect:/anasayfa";
             }
         }
 
@@ -41,7 +47,7 @@ public class UserController {
 
     @GetMapping("/user/register")
     public String userRegister(Model model){
-        return "back/register";
+        return "register_user";
     }
 
     @PostMapping("/user/register")
