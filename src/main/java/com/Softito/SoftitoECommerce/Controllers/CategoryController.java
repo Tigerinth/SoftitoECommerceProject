@@ -42,12 +42,10 @@ public class CategoryController {
                 subCategoryRepositoryService.add(subCategory);
             }
         }
-
         redirAttrs.addFlashAttribute("success", "Kategori başarıyla eklendi");
         String referer = request.getHeader("Referer");
         return "redirect:" + referer;
     }
-
     public String upperCase(String word){
         return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
     }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+  <link th:href="@{/front2/css/login.css}" rel="stylesheet" type="text/css" media="all" />
+
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+</head>
+<body>
+<!-- main -->
+<div class="main-w3layouts wrapper">
+  <h1>Kayıt Ol</h1>
+  <div class="main-agileinfo">
+    <div class="agileits-top">
+      <form method="post" th:action="@{/register}" >
+        <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+        <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+
+        <input class="text" type="text" name="fName" placeholder="İsminiz" required="">
+        <input class="text surname" type="surname" name="lName" placeholder="Soyisminiz" required="">
+        <input class="text email" type="email" name="email" placeholder="Email" required="">
+        <input class="text" type="text" name="address" placeholder="Adresiniz" required=""> <br>
+        <input class="text" type="password" name="password" placeholder="Şifre" required="">
+        <input class="text w3lpass" type="password" name="confirmPassword" placeholder="Şifreyi onayla" required="">
+        <div class="wthree-text">
+          <label class="anim">
+            <input type="checkbox" class="checkbox" required="">
+            <span>Şartlar & Koşulları Kabul Ediyorum.</span>
+          </label>
+          <div class="clear"> </div>
+        </div>
+        <input type="submit" value="KAYDOL">
+      </form>
+      <p>Mevcut hesabın var mı? <a th:href="@{/login}"> Giriş Yap</a></p>
+    </div>
+  </div>
+
+  <ul class="colorlib-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<!-- //main -->
+</body>
+</html>

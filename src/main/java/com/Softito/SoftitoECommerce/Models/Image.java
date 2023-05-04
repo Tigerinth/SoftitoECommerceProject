@@ -19,9 +19,7 @@ public class Image {
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
-    @Column(name = "image_name")
-    private String imageName;
 
-    @Column(name = "file_path")
-    private String filePath;
+    @Column(name = "image_path")
+    private String imagePath;
 }

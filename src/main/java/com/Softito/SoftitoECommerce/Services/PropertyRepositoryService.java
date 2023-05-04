@@ -1,6 +1,7 @@
 package com.Softito.SoftitoECommerce.Services;
 
 import com.Softito.SoftitoECommerce.Models.Property;
+import com.Softito.SoftitoECommerce.Models.SubCategory;
 import com.Softito.SoftitoECommerce.Repositories.IRepositoryService;
 import com.Softito.SoftitoECommerce.Repositories.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;

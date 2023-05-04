@@ -1,23 +1,26 @@
 package com.Softito.SoftitoECommerce.Controllers;
 
 import com.Softito.SoftitoECommerce.Models.Product;
+import com.Softito.SoftitoECommerce.Models.Property;
 import com.Softito.SoftitoECommerce.Models.SubCategory;
-import com.Softito.SoftitoECommerce.Repositories.ProductRepository;
 import com.Softito.SoftitoECommerce.Services.ProductRepositoryService;
+import com.Softito.SoftitoECommerce.Services.PropertyRepositoryService;
+import com.Softito.SoftitoECommerce.Services.SubCategoryRepositoryService;
+import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 public class PageController {
     @Autowired
-    private ProductRepositoryService service;
+    ProductRepositoryService productRepositoryService;
+    @Autowired
+    PropertyRepositoryService propertyRepositoryService;
     @GetMapping("/admin/panel")
     public String getAdminPanel() {
         return "back/index";
@@ -43,22 +46,23 @@ public class PageController {
         return "front/cart-2";
     }
 
-    @GetMapping("")
-    public String listProducts(Model model) {
-        List<Product> listProducts= service.getAll();
-        List <Product> ek = new ArrayList<>();
-        for (Product i : listProducts) {
-            if(i.getIsDelete() == false) {
-                ek.add(i);
+
+
+    @GetMapping("/product-detail/{id}")
+    public String getProductDetail(@PathVariable Long id, Model model){
+        Product product = productRepositoryService.getById(id);
+
+        try {
+            for (Property property : product.getProperties()){
+                System.out.println(property.getSubCategory().getProperty() + ": " + property.getPropertyField());
             }
+        }catch (Exception e){
+            System.out.println("bir hata var");
         }
-        model.addAttribute("listProducts",ek);
-        return "test";
-    }
-    @GetMapping("/admin/add-product/{id}")
-    public String geturun(Model model,@PathVariable("id") Long id){
-        model.addAttribute("product",service.getById(id));
-        return "productdetail";
+        int percentage = (int) ((( product.getOldPrice() - product.getPrice()) / product.getPrice()) * 100);
+        model.addAttribute("product",product);
+        model.addAttribute("percentage",percentage);
+        return "front2/product-detail";
     }
 
 }

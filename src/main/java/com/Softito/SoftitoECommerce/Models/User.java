@@ -36,9 +36,12 @@ public class User {
     @Column(name = "is_delete")
     private Boolean isDelete;
 
+    @Column(name = "wallet")
+    private Double wallet;
+
     public User() {}
 
-    public User(String email, String fName, String lName, String password, String address) {
+    public User(String email, String fName, String lName, String password, String address,Double wallet) {
         this.email = email;
         this.lName = lName;
         this.fName = fName;
@@ -46,5 +49,6 @@ public class User {
         this.address = address;
         this.isStatus = true;
         this.isDelete = false;
+        this.wallet = wallet;
     }
 }

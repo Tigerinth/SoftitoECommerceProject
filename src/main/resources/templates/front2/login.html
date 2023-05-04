@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{/front2/css/login.css}" rel="stylesheet" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+
+</div>
+<div class="myclass">
+    <span><p>Admin olarak giriş yap  <a class="white-input" th:href="@{/admin/login}" target="_blank">  Giriş Yap?</a></p></span>
+</div>
+<div class="main-w3layouts wrapper">
+    <h1>Giriş Yap</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form th:action="@{/login}" method="post">
+                <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+                <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+
+                <input class="text email" type="email" name="email" placeholder="Email" required="">
+                <input class="text" type="password" name="password" placeholder="Şifre" required="">
+                <div class="wthree-text">
+                    <div class="clear"> </div>
+                </div>
+                <input type="submit" value="GİRİŞ YAP">
+            </form>
+            <p>Mevcut hesabın yok mu? <a th:href="@{/register}"> Kaydol</a></p><br>
+
+        </div>
+    </div>
+    <ul class="colorlib-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

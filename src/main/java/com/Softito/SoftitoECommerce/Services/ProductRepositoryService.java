@@ -1,6 +1,7 @@
 package com.Softito.SoftitoECommerce.Services;
 
 import com.Softito.SoftitoECommerce.Models.Product;
+import com.Softito.SoftitoECommerce.Models.Property;
 import com.Softito.SoftitoECommerce.Repositories.IRepositoryService;
 import com.Softito.SoftitoECommerce.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,11 @@ public class ProductRepositoryService implements IRepositoryService<Product> {
 
     @Override
     public Product getById(Long id) {
+        for (Product product : productRepository.findAll()){
+            if (product.getId() == id){
+                return product;
+            }
+        }
         return null;
     }
 

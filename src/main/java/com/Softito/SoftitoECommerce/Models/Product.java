@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,7 +25,6 @@ public class Product {
     @Column(name = "price")
     private Double price;
 
-
     @Column(name = "old_price")
     private Double oldPrice;
 
@@ -42,6 +42,12 @@ public class Product {
 
     @Column(name = "is_delete")
     private Boolean isDelete = false;
+
+    @OneToMany(mappedBy = "product")
+    private List<Image> images;
+
+    @OneToMany(mappedBy = "product")
+    private List<Property> properties;
 
     public Product() {}
     public Product(Category category, String name, Double price, Double oldPrice, String description, String brand, int stock) {
